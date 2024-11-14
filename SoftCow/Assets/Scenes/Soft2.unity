@@ -119,6 +119,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &97847418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97847420}
+  - component: {fileID: 97847419}
+  m_Layer: 0
+  m_Name: ManagerTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &97847419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97847418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da970f6a96fa1d4abb27e3828d9e566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scissors: {fileID: 1322183898}
+  Rock: {fileID: 423903838}
+  Paper: {fileID: 1882070214}
+  CountDownTime: 5
+  CountDownDisplay: {fileID: 1886536269}
+--- !u!4 &97847420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97847418}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &423903836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,8 +1056,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "10\uCD08 \uC548\uC5D0 \uACE0\uB974\uC138\uC694"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fd0eb0b3ade158d43a004c83852310c9, type: 2}
-  m_sharedMaterial: {fileID: 3063191632384485543, guid: fd0eb0b3ade158d43a004c83852310c9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cb35c6ff52784ea408f93f61141b4305, type: 2}
+  m_sharedMaterial: {fileID: 2689676843759718529, guid: cb35c6ff52784ea408f93f61141b4305, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1315,6 +1364,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322183895}
   m_CullTransparentMesh: 1
+--- !u!1 &1324139908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324139910}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1324139910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324139908}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494269548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,7 +2192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6eab849130ba05c47a9fd6da7f3ca687, type: 2}
   m_sharedMaterial: {fileID: 2689676843759718529, guid: 6eab849130ba05c47a9fd6da7f3ca687, type: 2}
@@ -2393,3 +2473,5 @@ SceneRoots:
   - {fileID: 1610099036}
   - {fileID: 1844452872}
   - {fileID: 1881996964}
+  - {fileID: 97847420}
+  - {fileID: 1324139910}
