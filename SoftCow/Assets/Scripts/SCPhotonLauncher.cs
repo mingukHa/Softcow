@@ -4,6 +4,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using Photon.Pun.Demo.PunBasics;
+using TMPro; // TextMeshPro 네임스페이스 추가
+
 
 
 // Photon.PunBehaviour 사용안함
@@ -17,9 +20,13 @@ public class SCPhotonLauncher : MonoBehaviourPunCallbacks
 
     [SerializeField] private Button connectButton = null;
 
+    [SerializeField] private TMP_InputField inputField;
+
+
 
     private void Awake()
     {
+
         string version = Application.version;
         // unityVersion = 유니티 버전과 같아진다
         // 마스터가 PhotonNetwork.LoadLevel()을 호출하면,
@@ -31,22 +38,24 @@ public class SCPhotonLauncher : MonoBehaviourPunCallbacks
     {
         connectButton.interactable = true;
         //런처가 시작되면 버튼이 활성화 됨
+        inputField.onValueChanged.AddListener(OnValueChangedNickName);
     }
+
 
     // Connect Button이 눌러지면 호출
     public void Connect()
     {
         //if (null == nickName || nickName.Lenght == 0) return;
-        //if (string.IsNullOrEmpty(nickName)) //닉네임 검사 코드
-        //{
-        //    Debug.Log("NickName is empty");
-        //    return;
-        //}
+        if (string.IsNullOrEmpty(nickName)) //닉네임 검사 코드
+                                            //{
+                                            //    Debug.Log("NickName is empty");
+                                            //    return;
+                                            //}
 
         if (PhotonNetwork.IsConnected) //서버에 연결 되어 있는지 검사
         {
             PhotonNetwork.JoinRandomRoom();//무작위 방에 접속
-            //PhotonNetwork.JoinRoom("Room1");
+                                            //PhotonNetwork.JoinRoom("Room1");
         }
         else
         {
@@ -62,18 +71,17 @@ public class SCPhotonLauncher : MonoBehaviourPunCallbacks
     // InputField_NickName과 연결해 닉네임을 가져옴
     public void OnValueChangedNickName(string _nickName)
     {
-        nickName = _nickName;
-
-        // 유저 이름 지정
-        PhotonNetwork.NickName = nickName;
+        Debug.Log($"InputField에서 전달된 값: {_nickName}"); // 입력 값 확인
+        PhotonNetwork.NickName = _nickName; // PhotonNetwork에 닉네임 설정
     }
+
 
     public override void OnConnectedToMaster() //접속 시 자동 호출
     {
         Debug.LogFormat("Connected to Master: {0}", nickName);
 
         connectButton.interactable = false;
-
+        Debug.LogError($"{nickName}");
         PhotonNetwork.JoinRandomRoom();
     }
 
